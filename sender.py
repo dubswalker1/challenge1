@@ -64,11 +64,14 @@ async def generate_data(
 async def send_files(loop, transport, file_queue):
     start = time.time()
     MAX_TIME = 600
+    print_once = False
     # run through the queue pulling newly added files
     # continue for MAX_TIME
     while (time.time() - start) < MAX_TIME:
         while file_queue.empty():
-            print("waiting for something to send")
+            if print_once == False:
+                print("waiting for something to send")
+                print_once = True
             await asyncio.sleep(1)
             # reset start, we've been sleeping this whole time
             start = time.time()
