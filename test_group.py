@@ -48,8 +48,7 @@ class TestGroup:
         # Register the open socket to wait for data.
         reader, writer = await asyncio.open_connection(host="127.0.0.1", port=8880)
 
-        # Simulate the reception of data from the network
-        #loop.call_soon(wsock.send, 'abc'.encode())
+        # just send something ... anything
         writer.write("hello".encode())
 
         # Wait for data
