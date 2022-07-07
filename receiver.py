@@ -56,7 +56,7 @@ async def receive_data(host="127.0.0.1", port=8888, max_time=600):
         # decode all values in the list into numpy int16
         int16_array = numpy.array(list_16bits, dtype=numpy.int16)
         
-        #print("Received kb of int16: "+str(int16_array))
+        print("Received kb of int16: "+str(int16_array))
         # not consuming the data for anything, just summing up what we've received
         total_kb+=len(data)/DATA_INC
         print("Running Total Rcvd kb: "+str(total_kb))
